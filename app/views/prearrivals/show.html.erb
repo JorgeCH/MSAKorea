@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @prearrival.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @prearrival.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @prearrival.image %>
+</p>
+
+<%= link_to 'Edit', edit_prearrival_path(@prearrival) %> |
+<%= link_to 'Back', prearrivals_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prearrivals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prearrivals.each do |prearrival| %>
+      <tr>
+        <td><%= prearrival.title %></td>
+        <td><%= prearrival.description %></td>
+        <td><%= prearrival.image %></td>
+        <td><%= link_to 'Show', prearrival %></td>
+        <td><%= link_to 'Edit', edit_prearrival_path(prearrival) %></td>
+        <td><%= link_to 'Destroy', prearrival, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Prearrival', new_prearrival_path %>

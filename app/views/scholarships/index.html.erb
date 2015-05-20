@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Scholarships</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Address</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scholarships.each do |scholarship| %>
+      <tr>
+        <td><%= scholarship.name %></td>
+        <td><%= scholarship.description %></td>
+        <td><%= scholarship.address %></td>
+        <td><%= scholarship.link %></td>
+        <td><%= link_to 'Show', scholarship %></td>
+        <td><%= link_to 'Edit', edit_scholarship_path(scholarship) %></td>
+        <td><%= link_to 'Destroy', scholarship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Scholarship', new_scholarship_path %>

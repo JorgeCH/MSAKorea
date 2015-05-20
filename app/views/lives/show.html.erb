@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @life.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @life.description %>
+</p>
+
+<p>
+  <strong>Image1:</strong>
+  <%= @life.image1 %>
+</p>
+
+<p>
+  <strong>Image2:</strong>
+  <%= @life.image2 %>
+</p>
+
+<p>
+  <strong>Image3:</strong>
+  <%= @life.image3 %>
+</p>
+
+<p>
+  <strong>Photo:</strong>
+  <%= @life.photo %>
+</p>
+
+<%= link_to 'Edit', edit_life_path(@life) %> |
+<%= link_to 'Back', lives_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @formality.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @formality.description %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @formality.image %>
+</p>
+
+<%= link_to 'Edit', edit_formality_path(@formality) %> |
+<%= link_to 'Back', formalities_path %>
