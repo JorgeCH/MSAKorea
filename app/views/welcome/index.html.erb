@@ -1,1 +1,32 @@
-<h1>Welcome</h1>
+<div class="header">
+	<div class="menu">
+	<li><%= link_to 'Msa', descriptions_path %></li> 
+	<li><%= link_to 'Board', boards_path %></li>
+	<li><%= link_to 'Activities', activities_path %></li>
+	<li><%= link_to 'Antes de llegar', prearrivals_path %></li>
+	<li><%= link_to 'Tramites', formalities_path %></li>
+	<li><%= link_to 'Vida', lives_path %></li>
+	<li><%= link_to 'Becas', scholarships_path %></li>
+	<li><%= link_to 'Practicas y ofertas', jobs_path %></li>
+	<li><%= link_to 'Anuncios generales', announcements_path %></li>
+	</div>
+</div>
+<div class="msa">
+<% @descriptions.each do |description| %>
+	<h1><%= description.name %></h1>
+
+	<p>
+	  <%= description.text %>
+	</p>
+<% end %>
+</div>
+<div class="activities">
+	<% @activities.each do |activity| %>
+    	<div class="cont"> 
+	        <h2><%= activity.name %></h2>
+	        <h4><%= activity.date %></h4>
+	        <h4><%= activity.place %></h4>
+	        <p><%= activity.description %></p>
+       	</div>
+    <% end %>
+</div>
