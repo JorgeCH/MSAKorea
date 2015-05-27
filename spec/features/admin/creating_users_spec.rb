@@ -13,17 +13,19 @@ feature "Creating Users" do
 
 	scenario 'Creating a new user' do
 
+		fill_in "name", with: "Jorge"
 		fill_in "Email", with: "user@example.com"
 		fill_in "user[password]", with: "password"
-		
+		fill_in "Password confirmation", with: "password"
 		click_button "Create User"
 		expect(page).to have_content("User has been created.")
 	end
 
 	scenario "Creating an admin user" do
-		
+		fill_in "name", with: "Useradmin"
 		fill_in "Email", with: "admin@example.com"
-		fill_in "Password", with: "password"
+		fill_in "user[password]", with: "password"
+		fill_in "Password confirmation", with: "password"
 		check "Is an admin?"
 
 		click_button "Create User"
