@@ -15,8 +15,15 @@
 <% end %>
 
 <nav>
-<li><%= link_to "Sign up", new_user_path %></li>
-<li><%= link_to "Log In", signin_path %></li>
+	<% if current_user %>
+		<li>¡Hola,  <%= current_user.name %> !</li>
+		<% admins_only do %>
+			<li><%= link_to "Admin Panel", admin_root_path %></li>
+		<% end %>
+	<% else %>
+		<li><%= link_to "Log In", login_path %></li>
+		
+	<% end %>
 </nav>
 
 <%= yield %>
