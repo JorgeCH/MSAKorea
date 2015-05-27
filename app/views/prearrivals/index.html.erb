@@ -19,13 +19,16 @@
         <td><%= prearrival.description %></td>
         <td><%= prearrival.image %></td>
         <td><%= link_to 'Show', prearrival %></td>
+        <% if current_user %>
         <td><%= link_to 'Edit', edit_prearrival_path(prearrival) %></td>
         <td><%= link_to 'Destroy', prearrival, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Prearrival', new_prearrival_path %>
+<% if current_user %>
+  <%= link_to 'New Prearrival', new_prearrival_path %>
+<% end %>

@@ -30,5 +30,5 @@
   <%= @life.photo %>
 </p>
 
-<%= link_to 'Edit', edit_life_path(@life) %> |
+<% if current_user %><%= link_to 'Edit', edit_life_path(@life) %> <% end %>|
 <%= link_to 'Back', lives_path %>

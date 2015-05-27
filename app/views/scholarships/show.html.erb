@@ -20,5 +20,5 @@
   <%= @scholarship.link %>
 </p>
 
-<%= link_to 'Edit', edit_scholarship_path(@scholarship) %> |
+<% if current_user %><%= link_to 'Edit', edit_scholarship_path(@scholarship) %> <% end %>|
 <%= link_to 'Back', scholarships_path %>

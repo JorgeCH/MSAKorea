@@ -25,13 +25,16 @@
         <td><%= life.image3 %></td>
         <td><%= life.photo %></td>
         <td><%= link_to 'Show', life %></td>
+        <% if current_user %>
         <td><%= link_to 'Edit', edit_life_path(life) %></td>
         <td><%= link_to 'Destroy', life, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Life', new_life_path %>
+<% if current_user %>
+  <%= link_to 'New Life', new_life_path %>
+<% end %>

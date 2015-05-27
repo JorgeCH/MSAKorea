@@ -1,4 +1,5 @@
 class AnnouncementsController < ApplicationController
+  before_action :require_login!, except: [:index, :show]
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
 
   # GET /announcements

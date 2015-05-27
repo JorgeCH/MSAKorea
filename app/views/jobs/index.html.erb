@@ -19,13 +19,16 @@
         <td><%= job.description %></td>
         <td><%= job.contact %></td>
         <td><%= link_to 'Show', job %></td>
+        <% if current_user %>
         <td><%= link_to 'Edit', edit_job_path(job) %></td>
         <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Job', new_job_path %>
+<% if current_user %>
+  <%= link_to 'New Job', new_job_path %>
+<% end %>

@@ -15,5 +15,5 @@
   <%= @job.contact %>
 </p>
 
-<%= link_to 'Edit', edit_job_path(@job) %> |
+<% if current_user %><%= link_to 'Edit', edit_job_path(@job) %> <% end %>|
 <%= link_to 'Back', jobs_path %>
