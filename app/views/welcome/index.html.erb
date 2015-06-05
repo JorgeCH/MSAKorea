@@ -1,32 +1,179 @@
-<div class="header">
-	<div class="menu">
-	<li><%= link_to 'Msa', descriptions_path %></li> 
-	<li><%= link_to 'Board', boards_path %></li>
-	<li><%= link_to 'Activities', activities_path %></li>
-	<li><%= link_to 'Antes de llegar', prearrivals_path %></li>
-	<li><%= link_to 'Tramites', formalities_path %></li>
-	<li><%= link_to 'Vida', lives_path %></li>
-	<li><%= link_to 'Becas', scholarships_path %></li>
-	<li><%= link_to 'Practicas y ofertas', jobs_path %></li>
-	<li><%= link_to 'Anuncios generales', announcements_path %></li>
+
+
+<div class="main">
+	<div class="container">
+		<div class="slider">
+
+		</div>
 	</div>
 </div>
-<div class="msa">
-<% @descriptions.each do |description| %>
-	<h1><%= description.name %></h1>
 
-	<p>
-	  <%= description.text %>
-	</p>
-<% end %>
+<div class="main" id="one">
+	<div class="container">
+		<div class="content">
+			<% @descriptions.each do |description| %>
+			<h1><%= description.name %></h1>
+
+			<p>
+		  	<%= description.text %>
+			</p>
+			<% end %>
+		</div>
+	</div>
 </div>
-<div class="activities">
-	<% @activities.each do |activity| %>
-    	<div class="cont"> 
-	        <h2><%= activity.name %></h2>
-	        <h4><%= activity.date %></h4>
-	        <h4><%= activity.place %></h4>
-	        <p><%= activity.description %></p>
-       	</div>
-    <% end %>
+
+<div class="main" id="sec2">
+	<div class="container">
+		<div class="parallax">
+			
+		</div>
+	</div>
+</div>
+
+<div class="main" id="two">
+	<div class="container">
+		<div class="content">
+			<div class="col">
+				<h1>Noticias:</h1>
+				<br>
+				<% @announcements.each do |announcement| %>
+				<h2><%= link_to announcement.title, announcement %></h2>
+
+				<p>
+			  	<%= announcement.description %>
+				</p>
+
+				<% end %>
+				
+				<div class="pad"><button class="btn1"><%=link_to 'Ver Más noticias', announcements_path %></button></div>
+			</div>
+			<div class="col">
+				<h1>Becas:</h1>
+				<br>
+				<% @scholarships.each do |scholarship| %>
+
+				<h2><%= link_to scholarship.name, scholarship %></h2>
+
+				<p>
+			  	<%= scholarship.description %>
+				</p>
+
+				<% end %>
+				
+				<div class="pad"><button class="btn2"><%=link_to 'Ver Más Noticias', scholarships_path %></button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="main" id="sec3">
+	<div class="container">
+		<div class="parallax">
+			
+		</div>
+	</div>
+</div>
+
+
+
+<div class="main" id="two">
+	<div class="container">
+		<div class="content">
+			<div class="col">
+				<h1>Antes de llegar:</h1>
+				<br>
+				<% @prearrivals.each do |prearrival| %>
+				
+					<div class="inside-img">
+						<%= link_to image_tag(prearrival.image), prearrival %>
+					</div>
+
+					<div class="inside-text">
+						<h2><%= prearrival.title %></h2>
+
+						<p>
+					  	<%= prearrival.description %>
+						</p>
+					</div>
+
+				<% end %>
+
+				<div class="pad"><button class="btn1"><%=link_to 'Ver Más noticias', prearrivals_path %></button></div>
+			</div>
+			<div class="col">
+				<h1>Vida en Corea del Sur:</h1>
+				<br>
+				<% @lives.each do |life| %>
+				
+					<div class="inside-img">
+						<%= link_to image_tag(life.image1), life %>
+					</div>
+
+					<div class="inside-text">
+						<h2><%= life.title %></h2>
+
+						<p>
+					  	<%= life.description %>
+						</p>
+
+				  	</div>
+
+				<% end %>
+
+				<div class="pad"><button class="btn2"><%=link_to 'Ver Más Noticias', lives_path %></button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="main" id="sec4">
+	<div class="container">
+		<div class="parallax">
+			
+		</div>
+	</div>
+</div>
+
+<div class="main" id="one">
+	<div class="container">
+		<div class="content">
+			
+		</div>
+	</div>
+</div>
+
+<div class="main" id="two">
+	<div class="container">
+		<div class="content">
+			<div class="col">
+				<h1>Noticias:</h1>
+				<br>
+				<% @announcements.each do |announcement| %>
+				<h2><%= link_to announcement.title, announcement %></h2>
+
+				<p>
+			  	<%= announcement.description %>
+				</p>
+
+				<% end %>
+				
+				<div class="pad"><button class="btn1"><%=link_to 'Ver Más noticias', announcements_path %></button></div>
+			</div>
+			<div class="col">
+				<h1>Becas:</h1>
+				<br>
+				<% @scholarships.each do |scholarship| %>
+
+				<h2><%= link_to scholarship.name, scholarship %></h2>
+
+				<p>
+			  	<%= scholarship.description %>
+				</p>
+
+				<% end %>
+				
+				<div class="pad"><button class="btn2"><%=link_to 'Ver Más Noticias', scholarships_path %></button></div>
+			</div>
+		</div>
+	</div>
 </div>
