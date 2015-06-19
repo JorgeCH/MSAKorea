@@ -5,7 +5,7 @@ class ScholarshipsController < ApplicationController
   # GET /scholarships
   # GET /scholarships.json
   def index
-    @scholarships = Scholarship.all
+    @scholarships = Scholarship.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /scholarships/1

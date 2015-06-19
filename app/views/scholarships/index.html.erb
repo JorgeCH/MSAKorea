@@ -1,36 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="main2" id="two">
+  <div class="container">
+    <div class="content">
+      <div class="list2">
 
-<h1>Listing Scholarships</h1>
+      <div class="baner-beca">
+        <h1>Becas</h1>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Address</th>
-      <th>Link</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @scholarships.each do |scholarship| %>
+          
+          <div class="inside-text">
+            <h2><%= link_to scholarship.name,  scholarship %></h2>
+            <p><%= scholarship.description %></p>
+          </div>
 
-  <tbody>
-    <% @scholarships.each do |scholarship| %>
-      <tr>
-        <td><%= scholarship.name %></td>
-        <td><%= scholarship.description %></td>
-        <td><%= scholarship.address %></td>
-        <td><%= scholarship.link %></td>
-        <td><%= link_to 'Show', scholarship %></td>
-        <% if current_user %>
-        <td><%= link_to 'Edit', edit_scholarship_path(scholarship) %></td>
-        <td><%= link_to 'Destroy', scholarship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <div class="edit">
+            <% if current_user %>
+              <td><%= link_to 'Edit', edit_scholarship_path(scholarship) %></td>
+              <td><%= link_to 'Destroy', scholarship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <hr class="third">
+            <% end %>
+          </div>
+
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if current_user %>
-  <%= link_to 'New Scholarship', new_scholarship_path %>
-<% end %>
+        
+      </div>
+      <div class="new">
+        <% if current_user %>
+          <button><%= link_to 'New Scholarship', new_scholarship_path %></button>
+        <% end %>
+        <div class="digg_pagination">
+        <%= will_paginate @prearrivals %>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>

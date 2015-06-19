@@ -5,7 +5,7 @@ class PrearrivalsController < ApplicationController
   # GET /prearrivals
   # GET /prearrivals.json
   def index
-    @prearrivals = Prearrival.all
+    @prearrivals = Prearrival.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /prearrivals/1

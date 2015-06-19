@@ -5,7 +5,7 @@ class LivesController < ApplicationController
   # GET /lives
   # GET /lives.json
   def index
-    @lives = Life.all
+    @lives = Life.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /lives/1

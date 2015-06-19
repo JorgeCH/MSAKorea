@@ -1,19 +1,17 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @formality.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @formality.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @formality.image %>
-</p>
-
-<% if current_user %><%= link_to 'Edit', edit_formality_path(@formality) %><% end %> |
-<%= link_to 'Back', formalities_path %>
+<div class="main" id="two">
+	<div class="container">
+		<div class="content">
+			<div class="show-cont">
+				<hr class="first">
+				<h1><%= @formality.name %></h1>
+		      	<hr class="second">
+		      	<p><%= @formality.description %></p>
+		      	<hr class="third">
+		      	<%= image_tag(@formality.image) %>
+		      	<div class="pad"><button><%= link_to 'Back', formalities_path %></button></div>
+		      	<h3><% if current_user %><%= link_to 'Edit', edit_formality_path(@formality) %>
+				<% end %><h3>
+			</div>
+    	</div>
+  	</div>
+</div>

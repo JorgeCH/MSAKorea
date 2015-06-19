@@ -5,7 +5,7 @@ class FormalitiesController < ApplicationController
   # GET /formalities
   # GET /formalities.json
   def index
-    @formalities = Formality.all
+    @formalities = Formality.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /formalities/1

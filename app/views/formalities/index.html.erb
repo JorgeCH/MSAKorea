@@ -1,34 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="main2" id="two">
+  <div class="container">
+    <div class="content">
+      <div class="list">
 
-<h1>Listing Formalities</h1>
+        <div class="baner-tramites">
+          <h1>Trámites</h1>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @formalities.each do |formality| %>
 
-  <tbody>
-    <% @formalities.each do |formality| %>
-      <tr>
-        <td><%= formality.name %></td>
-        <td><%= formality.description %></td>
-        <td><%= formality.image %></td>
-        <td><%= link_to 'Show', formality %></td>
-        <% if current_user %>
-        <td><%= link_to 'Edit', edit_formality_path(formality) %></td>
-        <td><%= link_to 'Destroy', formality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <div class="inside-img">
+            <%= link_to image_tag(formality.image), formality %>
+          </div>
+          
+          <div class="inside-text">
+            <h2><%= link_to formality.name,  formality %></h2>
+            <p><%= formality.description %></p>
+          </div>
+
+          <div class="edit">
+            <% if current_user %>
+              <td><%= link_to 'Edit', edit_formality_path(formality) %></td>
+              <td><%= link_to 'Destroy', formality, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <hr class="third">
+            <% end %>
+          </div>
+
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if current_user %>
-  <%= link_to 'New Formality', new_formality_path %>
-<% end %>
+        
+        </div>
+      <div class="new">
+        <% if current_user %>
+          <button><%= link_to 'New Formality', new_formality_path %></button>
+        <% end %>
+        <div class="digg_pagination">
+          <%= will_paginate @formalities %>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>

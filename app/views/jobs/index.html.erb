@@ -1,34 +1,37 @@
-<p id="notice"><%= notice %></p>
+<div class="main2" id="two">
+  <div class="container">
+    <div class="content">
+      <div class="list2">
 
-<h1>Listing Jobs</h1>
+        <div class="baner-practicas">
+          <h1>Prácticas</h1>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Contact</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @jobs.each do |job| %>
+          
+          <div class="inside-text">
+            <h2><%= link_to job.title,  job %></h2>
+            <p><%= job.description %></p>
+          </div>
 
-  <tbody>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.title %></td>
-        <td><%= job.description %></td>
-        <td><%= job.contact %></td>
-        <td><%= link_to 'Show', job %></td>
-        <% if current_user %>
-        <td><%= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <div class="edit">
+            <% if current_user %>
+              <td><%= link_to 'Edit', edit_job_path(job) %></td>
+              <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <hr class="third">
+            <% end %>
+          </div>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if current_user %>
-  <%= link_to 'New Job', new_job_path %>
-<% end %>
+        
+      </div>
+      <div class="new">
+        <% if current_user %>
+          <button><%= link_to 'New Job', new_job_path %></button>
+        <% end %>
+        <div class="digg_pagination">
+        <%= will_paginate @jobs %>
+        </div>   
+      </div>
+    </div>
+  </div>
+</div>
