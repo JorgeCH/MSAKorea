@@ -1,24 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="main" id="two">
+  <div class="container">
+    <div class="content">
+     	<div class="left-cont">
+		    <h3><p>Dirección: <%= link_to(@scholarship.address) %></p></h3>
+		    <h3><p>Link: <%= link_to(@scholarship.link) %></p></h3>
+		    <h3>
+		    	<% if current_user %> 
+					<p><%= link_to 'Edit', edit_scholarship_path(@scholarship) %></p>
+		        <% end %>
+		    </h3>
+		    <div class="pad"><button><%= link_to 'Back', scholarships_path %></button>
+		    </div>
+    	</div>
+      	<div class="right-cont">
+            <hr class="first">
+            <h1><%= @scholarship.name %></h1>
+            <hr class="second">
+            <p><%= @scholarship.description %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @scholarship.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @scholarship.description %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @scholarship.address %>
-</p>
-
-<p>
-  <strong>Link:</strong>
-  <%= @scholarship.link %>
-</p>
-
-<%= link_to 'Edit', edit_scholarship_path(@scholarship) %> |
-<%= link_to 'Back', scholarships_path %>
+      	</div>
+    </div>
+</div>

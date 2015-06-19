@@ -1,10 +1,11 @@
 class PrearrivalsController < ApplicationController
+  before_action :require_login!, except: [:index, :show]
   before_action :set_prearrival, only: [:show, :edit, :update, :destroy]
 
   # GET /prearrivals
   # GET /prearrivals.json
   def index
-    @prearrivals = Prearrival.all
+    @prearrivals = Prearrival.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /prearrivals/1

@@ -1,10 +1,11 @@
 class ScholarshipsController < ApplicationController
+  before_action :require_login!, except: [:index, :show]
   before_action :set_scholarship, only: [:show, :edit, :update, :destroy]
 
   # GET /scholarships
   # GET /scholarships.json
   def index
-    @scholarships = Scholarship.all
+    @scholarships = Scholarship.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /scholarships/1

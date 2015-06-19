@@ -15,5 +15,5 @@
   <%= @description.text %>
 </p>
 
-<%= link_to 'Edit', edit_description_path(@description) %> |
+<% if current_user %> <%= link_to 'Edit', edit_description_path(@description) %> <% end %> |
 <%= link_to 'Back', descriptions_path %>

@@ -1,10 +1,11 @@
 class FormalitiesController < ApplicationController
+  before_action :require_login!, except: [:index, :show]
   before_action :set_formality, only: [:show, :edit, :update, :destroy]
 
   # GET /formalities
   # GET /formalities.json
   def index
-    @formalities = Formality.all
+    @formalities = Formality.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /formalities/1

@@ -1,10 +1,11 @@
 class LivesController < ApplicationController
+  before_action :require_login!, except: [:index, :show]
   before_action :set_life, only: [:show, :edit, :update, :destroy]
 
   # GET /lives
   # GET /lives.json
   def index
-    @lives = Life.all
+    @lives = Life.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /lives/1

@@ -1,10 +1,11 @@
 class JobsController < ApplicationController
+  before_action :require_login!, except: [:index, :show]
   before_action :set_job, only: [:show, :edit, :update, :destroy]
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
+    @jobs = Job.paginate(page: params[:page], per_page:5).ultimos
   end
 
   # GET /jobs/1

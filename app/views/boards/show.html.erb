@@ -25,5 +25,5 @@
   <%= @board.photo %>
 </p>
 
-<%= link_to 'Edit', edit_board_path(@board) %> |
+<% if current_user %><%= link_to 'Edit', edit_board_path(@board) %><% end %>  |
 <%= link_to 'Back', boards_path %>

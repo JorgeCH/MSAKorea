@@ -5,10 +5,64 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
+<div class="header">
+	<div class="menu">
+		<div><%= link_to 'Home', root_path %></div>
+		<% if current_user %><div><%= link_to 'MSA', descriptions_path %></div><% end %>
+		<div><%= link_to 'Board', boards_path %></div>
+		<div><%= link_to 'Activities', activities_path %></div>
+		<div><%= link_to 'Consejos', prearrivals_path %></div>
+		<div><%= link_to 'Trámites', formalities_path %></div>
+		<div><%= link_to 'Vida', lives_path %></div>
+		<div><%= link_to 'Becas', scholarships_path %></div>
+		<div><%= link_to 'Prácticas', jobs_path %></div>
+		<div><%= link_to 'Noticias', announcements_path %></div>
+		<div><%= link_to 'Links', links_path %></div>
+		<div>
+			<% if current_user %>
+				<%= link_to "Log out", logout_path, method: :delete %>
+			<% else %>
+				<%= link_to "Log In", login_path %>
+			<% end %>
+		</div>
+		<div>
+			<% if current_user %>
+				<% admins_only do %>
+					<%= link_to "Admin Panel", admin_root_path %>
+				<% end %>
+			<% else %>
+				
+			<% end %>
+		</div>
+
+	</div>
+</div>
+
+<% flash.each do |key, value| %>
+  <div class='flash' id='<%= key %>'>
+    <%= value %>
+  </div>
+<% end %>
+
 <%= yield %>
+
+<div class="footer" id="">
+	<div class="container">
+		<div class="content">
+			<div id="aviso">
+			<h5><a href="sitemap.html"><span id="color">Sitemap</span></a></h5>
+			<h5>Aviso de Privacidad</h5>
+			</div>
+			<div id="nuva">
+			<a href="http://nuva.rocks"><img alt="Sitio Web Desarrollado por Nuva Agencia Digital" id="nuva" src="img/nuvalogo.svg"></a>
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>

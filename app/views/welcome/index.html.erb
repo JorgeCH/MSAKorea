@@ -1,32 +1,170 @@
-<div class="header">
-	<div class="menu">
-	<li><%= link_to 'Msa', descriptions_path %></li> 
-	<li><%= link_to 'Board', boards_path %></li>
-	<li><%= link_to 'Activities', activities_path %></li>
-	<li><%= link_to 'Antes de llegar', prearrivals_path %></li>
-	<li><%= link_to 'Tramites', formalities_path %></li>
-	<li><%= link_to 'Vida', lives_path %></li>
-	<li><%= link_to 'Becas', scholarships_path %></li>
-	<li><%= link_to 'Practicas y ofertas', jobs_path %></li>
-	<li><%= link_to 'Anuncios generales', announcements_path %></li>
+<div class="main" id="slider">
+	<%= image_tag "estudia.png" %>
+</div>
+
+<div class="main" id="one">
+	<div class="container">
+		<div class="content">
+			<% @descriptions.each do |description| %>
+			<h1><%= description.name %></h1>
+
+			<p>
+		  	<%= description.text %>
+			</p>
+			<% end %>
+		</div>
 	</div>
 </div>
-<div class="msa">
-<% @descriptions.each do |description| %>
-	<h1><%= description.name %></h1>
 
-	<p>
-	  <%= description.text %>
-	</p>
-<% end %>
+<div class="main" id="sec2">
+	<div class="container">
+		<div class="parallax">
+			
+		</div>
+	</div>
 </div>
-<div class="activities">
-	<% @activities.each do |activity| %>
-    	<div class="cont"> 
-	        <h2><%= activity.name %></h2>
-	        <h4><%= activity.date %></h4>
-	        <h4><%= activity.place %></h4>
-	        <p><%= activity.description %></p>
-       	</div>
-    <% end %>
+
+<div class="main" id="two">
+	<div class="container">
+		<div class="content">
+			<div class="col">
+				<h1>Anuncios:</h1>
+				<br>
+				<% @announcements.order("id desc").limit(3).each do |announcement| %>
+				<h2><%= link_to announcement.title, announcement %></h2>
+
+				<p>
+			  	<%= announcement.description %>
+				</p>
+
+				<% end %>
+				
+				<div class="pad"><button class="btn1"><%=link_to 'Ver Más', announcements_path %></button></div>
+			</div>
+			<div class="col">
+				<h1>Becas:</h1>
+				<br>
+				
+	        <% @activities.order("id desc").limit(3).each do |activity| %>
+				
+					<div class="inside-img">
+						<%= link_to image_tag(activity.photo1), activity %>
+					</div>
+
+					<div class="inside-text">
+						<h2><%= link_to activity.name,  activity %></h2>
+
+						<p>
+					  	<%= activity.description %>
+						</p>
+
+				  	</div>
+
+				<% end %>
+				
+				<div class="pad"><button class="btn2"><%=link_to 'Ver Más', scholarships_path %></button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="main" id="sec3">
+	<div class="container">
+		<div class="parallax">
+			
+		</div>
+	</div>
+</div>
+
+
+
+<div class="main" id="two">
+	<div class="container">
+		<div class="content">
+			<div class="col">
+				<h1>Consejos:</h1>
+				<br>
+				<% @prearrivals.order("id desc").limit(3).each do |prearrival| %>
+				
+					<div class="inside-img">
+						<%= link_to image_tag(prearrival.image), prearrival %>
+					</div>
+
+					<div class="inside-text">
+						<h2><%= link_to prearrival.title, prearrival %></h2>
+						<p>
+					  	<%= prearrival.description %>
+						</p>
+					</div>
+
+				<% end %>
+
+				<div class="pad"><button class="btn1"><%=link_to 'Ver Más', prearrivals_path %></button></div>
+			</div>
+			<div class="col">
+				<h1>Vida en Corea del Sur:</h1>
+				<br>
+				<% @lives.order("id desc").limit(3).each do |life| %>
+				
+					<div class="inside-img">
+						<%= link_to image_tag(life.image1), life %>
+					</div>
+
+					<div class="inside-text">
+						<h2><%= link_to life.title, life %></h2>
+
+						<p>
+					  	<%= life.description %>
+						</p>
+
+				  	</div>
+
+				<% end %>
+
+				<div class="pad"><button class="btn2"><%=link_to 'Ver Más', lives_path %></button></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="main" id="sec4">
+	<div class="container">
+		<div class="parallax">
+			
+		</div>
+	</div>
+</div>
+
+<div class="main" id="one">
+	<div class="container">
+		<div class="content">
+			
+		</div>
+	</div>
+</div>
+
+<div class="main" id="three">
+	<div class="container">
+		<div class="content">
+			<h1>Contacto</h1>
+			<p><b>Mail:</b>
+			<a href="">
+			contacto
+			</a><br><br>
+			<b>Teléfono:</b> 
+
+			<br><br>
+			<b>Dirección:</b>
+
+			</p>
+			<br>
+			<h2>Déjanos un mensaje.</h2>
+			<form action="" method="POST">
+			    <input class="input" type="text" name="name" placeholder="Nombre">
+			    <input class="input" type="text" name="_replyto" placeholder="Correo" >
+				<textarea class="input" name="message" rows="5" placeholder="Mensaje"></textarea >
+			    <input class="submit" type="submit" value="Enviar" onclick="check();">
+			</form>	
+		</div>
+	</div>
 </div>

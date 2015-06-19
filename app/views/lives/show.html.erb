@@ -1,34 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @life.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @life.description %>
-</p>
-
-<p>
-  <strong>Image1:</strong>
-  <%= @life.image1 %>
-</p>
-
-<p>
-  <strong>Image2:</strong>
-  <%= @life.image2 %>
-</p>
-
-<p>
-  <strong>Image3:</strong>
-  <%= @life.image3 %>
-</p>
-
-<p>
-  <strong>Photo:</strong>
-  <%= @life.photo %>
-</p>
-
-<%= link_to 'Edit', edit_life_path(@life) %> |
-<%= link_to 'Back', lives_path %>
+<div class="main" id="two">
+  <div class="container">
+    <div class="content">
+      <div class="show-cont">
+            <hr class="first">
+            <h1><%= @life.title %></h1>
+            <hr class="second">
+            <p><%= @life.description %></p>
+            <hr class="third">
+            <div class="images">
+              <%= image_tag(@life.image1) %>
+              <%= image_tag(@life.image2) %>
+              <%= image_tag(@life.image3) %>
+              <%= image_tag(@life.photo) %>
+            </div>
+            <div class="pad"><button><%= link_to 'Back', lives_path %></button></div>
+            <h3><% if current_user %><%= link_to 'Edit', edit_life_path(@life) %></h3>
+        <% end %>
+      </div>
+      </div>
+    </div>
+</div>

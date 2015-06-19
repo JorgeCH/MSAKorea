@@ -1,31 +1,42 @@
-<p id="notice"><%= notice %></p>
+<div class="main2" id="two">
+  <div class="container">
+    <div class="content">
+      <div class="list">
 
-<h1>Listing Prearrivals</h1>
+        <div class="baner-consejo">
+          <h1>Consejos para Corea del Sur</h1>
+        </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <% @prearrivals.each do |prearrival| %>
 
-  <tbody>
-    <% @prearrivals.each do |prearrival| %>
-      <tr>
-        <td><%= prearrival.title %></td>
-        <td><%= prearrival.description %></td>
-        <td><%= prearrival.image %></td>
-        <td><%= link_to 'Show', prearrival %></td>
-        <td><%= link_to 'Edit', edit_prearrival_path(prearrival) %></td>
-        <td><%= link_to 'Destroy', prearrival, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <div class="inside-img">
+            <%= link_to image_tag(prearrival.image), prearrival %>
+          </div>
+          
+          <div class="inside-text">
+            <h2><%= link_to prearrival.title,  prearrival %></h2>
+            <p><%= prearrival.description %></p>
+          </div>
 
-<br>
+          <div class="edit">
+            <% if current_user %>
+              <td><%= link_to 'Edit', edit_prearrival_path(prearrival) %></td>
+              <td><%= link_to 'Destroy', prearrival, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <hr class="third">
+            <% end %>
+          </div>
 
-<%= link_to 'New Prearrival', new_prearrival_path %>
+        <% end %>
+        
+        </div>
+      <div class="new">
+        <% if current_user %>
+          <button><%= link_to 'New Prearrival', new_prearrival_path %></button>
+        <% end %>  
+        <div class="digg_pagination">
+        <%= will_paginate @prearrivals %>
+        </div>    
+      </div>
+    </div>
+  </div>
+</div>

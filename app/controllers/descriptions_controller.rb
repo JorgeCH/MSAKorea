@@ -1,4 +1,5 @@
 class DescriptionsController < ApplicationController
+  before_action :require_login!, except: [:index, :show]
   before_action :set_description, only: [:show, :edit, :update, :destroy]
 
   # GET /descriptions
